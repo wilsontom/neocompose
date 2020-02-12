@@ -1,0 +1,26 @@
+version: '3'
+
+networks: 
+  neo4j-network:
+    driver: bridge
+
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j-semantics
+    networks: 
+      - neo4j-network
+    ports:
+      - '7474:7474'
+      - '7687:7687'
+    volumes:
+      - $HOME/neo4j/data:/data
+      - $HOME/neo4j/logs:/logs
+      - $HOME/neo4j/conf:/conf
+      - $HOME/neo4j/plugins:/plugins
+    environment:
+      - NEO4J_ULIMIT_NOFILE=40000
+      - NEO4JLABS_PLUGINS=["apoc", "graph-algorithims"]
+      - NEO4J_dbms_unmanaged_extension_classes=semantics.extension=/rdf
+      - NEO4J_dbms_security_procedures_whitelist=semantics.*
+      - NEO4J_dbms_security_procedures_unrestricted=semantics.*
