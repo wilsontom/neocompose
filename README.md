@@ -1,14 +1,23 @@
 # neo4j-compose
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) ![License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg "CC-BY-4.0")
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) ![License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg "CC-BY-4.0")
 
 > **Various Configuations of Neo4j using docker-compose**
 
+## Getting Started
 
-1. [neo4j-base](/neo4j-base/docker-compose.yml)
+To run neo4j using docker-compose; simply run the command:
 
-2. [neo4j-graph]
+```sh
+ docker-compose -f <docker-compose-file.yml> up -d
+```
 
-3. [neo4j-graph-ssl]
+All configurations will bind to port **7474** & **7687**
 
-4. [neosemantics]
+* **neo4j-base**
+
+* **self_signed_ssl**
+
+* **no_ssl**
+
+* **neosemantics**
